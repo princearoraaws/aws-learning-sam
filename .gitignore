@@ -1,0 +1,14 @@
+/.metadata/
+*.prefs
+*.class
+*.MF
+hello-sam-app/PhotoAppUsersApi/target/classes/META-INF/maven/com.amazon.example/PhotoAppUsersApi/pom.properties
+hello-sam-app/PhotoAppUsersApi/target/classes/META-INF/maven/com.amazon.example/PhotoAppUsersApi/pom.xml
+*.lst
+hello-sam-app/PhotoAppUsersApi/target/maven-archiver/pom.properties
+hello-sam-app/PhotoAppUsersApi/target/original-PhotoAppUsersApi-1.0.jar
+hello-sam-app/PhotoAppUsersApi/target/PhotoAppUsersApi-1.0.jar
+hello-sam-app/PhotoAppUsersApi/target/surefire-reports/TEST-com.amazon.example.test.PostHandlerTest.xml
+hello-sam-app/PhotoAppUsersApi/target/surefire-reports/com.amazon.example.test.PostHandlerTest.txt
+*.jar
+hello-sam-app/.aws-sam/build.toml

@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  hello-sam-app
+
+  Sample SAM Template for hello-sam-app
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 20
+    Runtime: java8
+    MemorySize: 512
+Resources:
+  PostHandlerLambdaFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: PhotoAppUsersApi
+      Handler: com.amazon.example.PostHandler::handleRequest
+      Events:
+        PhotoAppUsers:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /users
+            Method: post
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  PhotoAppUsersApi:
+    Description: "An API endpoint to create a new user"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/users"
+  PostHandlerLambdaFunction:
+    Description: "Post Handler Lambda Function ARN"
+    Value: !GetAtt PostHandlerLambdaFunction.Arn
+  PostHandlerLambdaFunctionIamRole:
+    Description: "Implicit IAM Role created for Post Handler Lambda function"
+    Value: !GetAtt PostHandlerLambdaFunctionRole.Arn

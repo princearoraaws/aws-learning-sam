@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "aws-lambda-poc-cfs"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-mkqumqt1ro7i"
+s3_prefix = "aws-lambda-poc-cfs"
+region = "eu-west-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []
