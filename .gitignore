@@ -12,3 +12,11 @@ hello-sam-app/PhotoAppUsersApi/target/surefire-reports/TEST-com.amazon.example.t
 hello-sam-app/PhotoAppUsersApi/target/surefire-reports/com.amazon.example.test.PostHandlerTest.txt
 *.jar
 hello-sam-app/.aws-sam/build.toml
+OrderHandlerFunction/.aws-sam/build.toml
+OrderHandlerFunction/.aws-sam/build/template.yaml
+OrderHandlerFunction/target/classes/META-INF/maven/com.amazonaws.lambda/orderhandler/pom.properties
+OrderHandlerFunction/target/classes/META-INF/maven/com.amazonaws.lambda/orderhandler/pom.xml
+OrderHandlerFunction/target/maven-archiver/pom.properties
+OrderHandlerFunction/.settings/com.amazonaws.eclipse.serverless.project.json
+sam-order-app/HelloWorldFunction/target/classes/META-INF/maven/helloworld/HelloWorld/pom.xml
+sam-order-app/HelloWorldFunction/target/classes/META-INF/maven/helloworld/HelloWorld/pom.properties

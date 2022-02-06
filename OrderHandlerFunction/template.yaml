@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-order-app
+
+  Sample SAM Template for sam-order-app
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 20
+    Runtime: java8
+    MemorySize: 512
+Resources:
+  OrderHandlerFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: ../OrderHandlerFunction
+      Handler: com.amazonaws.lambda.orderhandler.OrderHandler::handleRequest
+      Events:
+        OrderHandlerFunction:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /orders
+            Method: post
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  OrderHandlerApi:
+    Description: "API Gateway endpoint URL for Prod stage for Order Handler function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/orders"
+  OrderHandlerFunction:
+    Description: "Order Handler Lambda Function ARN"
+    Value: !GetAtt OrderHandlerFunction.Arn
+  OrderHandlerFunctionIamRole:
+    Description: "Implicit IAM Role created for Order Handler function"
+    Value: !GetAtt OrderHandlerFunctionRole.Arn

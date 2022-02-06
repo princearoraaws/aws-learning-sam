@@ -1,0 +1,50 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Transform" : [ "AWS::Serverless-2016-10-31" ],
+  "Description" : "sam-order-app\nSample SAM Template for sam-order-app\n",
+  "Resources" : {
+    "OrderHandlerFunction" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties" : {
+        "Role" : null,
+        "MemorySize" : 512,
+        "Runtime" : "java8",
+        "Description" : null,
+        "Policies" : [ ],
+        "CodeUri" : "./target/orderhandler-1.0.0.jar",
+        "Handler" : "com.amazonaws.lambda.orderhandler.OrderHandler",
+        "Events" : {
+          "OrderHandlerFunction" : {
+            "Type" : "Api",
+            "Properties" : {
+              "Path" : "/orders",
+              "Method" : "post"
+            }
+          }
+        },
+        "Timeout" : 300
+      }
+    }
+  },
+  "Globals" : {
+    "Function" : {
+      "Timeout" : 20,
+      "Runtime" : "java8",
+      "MemorySize" : 512
+    }
+  },
+  "Outputs" : {
+    "OrderHandlerApi" : {
+      "Description" : "API Gateway endpoint URL for Prod stage for Order Handler function",
+      "Value" : "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/orders"
+    },
+    "OrderHandlerFunction" : {
+      "Description" : "Order Handler Lambda Function ARN",
+      "Value" : "OrderHandlerFunction.Arn"
+    },
+    "OrderHandlerFunctionIamRole" : {
+      "Description" : "Implicit IAM Role created for Order Handler function",
+      "Value" : "OrderHandlerFunctionRole.Arn"
+    }
+  }
+}
