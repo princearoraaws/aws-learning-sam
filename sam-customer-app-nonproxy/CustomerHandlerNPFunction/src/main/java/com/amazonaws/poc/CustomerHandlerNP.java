@@ -14,6 +14,7 @@ public class CustomerHandlerNP implements RequestHandler<Map<String,String>, Map
     public Map<String,String> handleRequest(Map<String,String> input, Context context) {
     	LambdaLogger logger = context.getLogger();
         context.getLogger().log("ENTERED LAMBDA CustomerNPHandler: " + input);
+        context.getLogger().log("Code version '2'- PROD deployment #### VERSION  #### =====> "+context.getFunctionVersion());
         
         String firstName = input.get("firstName");
         String lastName = input.get("lastName");
