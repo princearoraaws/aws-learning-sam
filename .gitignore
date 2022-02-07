@@ -24,3 +24,7 @@ sam-customer-app/.aws-sam/build.toml
 sam-customer-app/.aws-sam/build/template.yaml
 sam-customer-app/CustomerHandlerFunction/target/classes/META-INF/maven/com.amazonaws.poc/sam-customer-app/pom.properties
 sam-customer-app/CustomerHandlerFunction/target/classes/META-INF/maven/com.amazonaws.poc/sam-customer-app/pom.xml
+sam-customer-app-nonproxy/.aws-sam/build.toml
+sam-customer-app-nonproxy/.aws-sam/build/template.yaml
+sam-customer-app-nonproxy/CustomerHandlerNPFunction/target/classes/META-INF/maven/com.amazonaws.poc/CustomerHandlerNPFunction/pom.properties
+sam-customer-app-nonproxy/CustomerHandlerNPFunction/target/classes/META-INF/maven/com.amazonaws.poc/CustomerHandlerNPFunction/pom.xml
