@@ -20,3 +20,7 @@ OrderHandlerFunction/target/maven-archiver/pom.properties
 OrderHandlerFunction/.settings/com.amazonaws.eclipse.serverless.project.json
 sam-order-app/HelloWorldFunction/target/classes/META-INF/maven/helloworld/HelloWorld/pom.xml
 sam-order-app/HelloWorldFunction/target/classes/META-INF/maven/helloworld/HelloWorld/pom.properties
+sam-customer-app/.aws-sam/build.toml
+sam-customer-app/.aws-sam/build/template.yaml
+sam-customer-app/CustomerHandlerFunction/target/classes/META-INF/maven/com.amazonaws.poc/sam-customer-app/pom.properties
+sam-customer-app/CustomerHandlerFunction/target/classes/META-INF/maven/com.amazonaws.poc/sam-customer-app/pom.xml
