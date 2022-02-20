@@ -28,3 +28,5 @@ sam-customer-app-nonproxy/.aws-sam/build.toml
 sam-customer-app-nonproxy/.aws-sam/build/template.yaml
 sam-customer-app-nonproxy/CustomerHandlerNPFunction/target/classes/META-INF/maven/com.amazonaws.poc/CustomerHandlerNPFunction/pom.properties
 sam-customer-app-nonproxy/CustomerHandlerNPFunction/target/classes/META-INF/maven/com.amazonaws.poc/CustomerHandlerNPFunction/pom.xml
+cognito-users-pool-sample/cognito-users-pool-sample/target/classes/META-INF/maven/com.aws.sample/cognito-users-pool-sample/pom.properties
+cognito-users-pool-sample/cognito-users-pool-sample/target/classes/META-INF/maven/com.aws.sample/cognito-users-pool-sample/pom.xml

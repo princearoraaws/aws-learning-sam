@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  cognito-users-pool-sample
+
+  Sample SAM Template for cognito-users-pool-sample
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 20
+    Runtime: java8
+    MemorySize: 512
+    Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+      Variables:
+        MY_COGNITO_POOL_APP_CLIENT_ID: 7dbtqp9sa1r1bfbep86hnvvjsk    
+
+Resources:
+  CreateUserHandlerFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: cognito-users-pool-sample
+      Handler: com.aws.user.lambda.CreateUserHandler::handleRequest
+      Events:
+        CreateUser:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /users
+            Method: post
+  ConfirmUserHandlerFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: cognito-users-pool-sample
+      Handler: com.aws.user.lambda.ConfirmUserHandler::handleRequest
+      Events:
+        ConfirmUser:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /confirm
+            Method: post            
+            
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  CreateUserHandlerApi:
+    Description: "API Gateway endpoint URL for Prod stage for Create User function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/user/"
+  CreateUserHandlerFunction:
+    Description: "Create User Lambda Function ARN"
+    Value: !GetAtt CreateUserHandlerFunction.Arn
+  CreateUserHandlerFunctionIamRole:
+    Description: "Implicit IAM Role created for Create User function"
+    Value: !GetAtt CreateUserHandlerFunctionRole.Arn

@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "cognito-user-pool-sample-cfs"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-mkqumqt1ro7i"
+s3_prefix = "cognito-user-pool-sample-cfs"
+region = "eu-west-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
